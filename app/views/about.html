@@ -1,0 +1,22 @@
+<h3>Recent Last.fm Tracks</h3>
+<div ng-if="error" class="container">
+  <h3>Something went wrong: {{error}}</h3>
+</div>
+<div ng-if="!error" class="container breathe">
+  <ul class="thumbnails">
+    <li class="span4" ng-repeat="song in songs">
+      <a class="thumbnail" href="{{song.url}}" title="{{song.artist['#text']}} - {{song.name}}" style="display: block;">
+        <div class="media">
+          <div class="pull-left" href="#">
+            <img class="media-object" src="{{song.image[2]['#text']}}">
+          </div>
+          <div class="media-body">
+            <strong>{{song.artist['#text']}}</strong><br />
+            {{song.name}}<br />
+            <em>{{song.date['#text']}}</em>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
