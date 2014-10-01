@@ -14,8 +14,7 @@ angular.module('angularMeetupApp')
             method: 'user.getrecenttracks',
             api_key: 'a0c1594052516ddafa161aa969e52e20',
             limit: 12,
-            //user: 'bizob2828',
-            user: 'bizob2828adfa',
+            user: 'bizob2828',
             format: 'json'
         };
         $http.get(url, { params: params })
@@ -27,7 +26,6 @@ angular.module('angularMeetupApp')
                 }
             })
             .error(function (data, status) {
-                console.log(error);
                 $scope.error = data || 'Req is hosed';
             });
 
