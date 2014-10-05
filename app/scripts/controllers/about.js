@@ -8,25 +8,24 @@
  * Controller of the angularMeetupApp
  */
 angular.module('angularMeetupApp')
-  .controller('AboutCtrl', function ($scope, $http) {
-    var url = 'http://ws.audioscrobbler.com/2.0/';
-        var params = {
-            method: 'user.getrecenttracks',
-            api_key: 'a0c1594052516ddafa161aa969e52e20',
-            limit: 12,
-            user: 'bizob2828',
-            format: 'json'
-        };
-        $http.get(url, { params: params })
-            .success(function (data) {
-                if(data.error) {
-                  $scope.error = data.message;
-                } else {
-                  $scope.songs = data.recenttracks.track;
-                }
-            })
-            .error(function (data, status) {
-                $scope.error = data || 'Req is hosed';
-            });
+  .controller('AboutCtrl', function ($scope, $http, lastFmCreds) {
+    var params = {
+        method: 'user.getrecenttracks',
+        api_key: lastFmCreds.apiKey,
+        limit: 12,
+        user: lastFmCreds.user,
+        format: 'json'
+    };
+    $http.get(lastFmCreds.url, { params: params })
+        .success(function (data) {
+            if(data.error) {
+              $scope.error = data.message;
+            } else {
+              $scope.songs = data.recenttracks.track;
+            }
+        })
+        .error(function (data, status) {
+            $scope.error = data || 'Req is hosed';
+        });
 
   });
