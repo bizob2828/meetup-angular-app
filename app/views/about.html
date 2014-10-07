@@ -1,8 +1,14 @@
 <h3>Recent Last.fm Tracks</h3>
+<div class="row breathe">
+  <span class="btn btn-primary" ng-click="recentTracks()">Get Recent Tracks</span>
+</div>
 <div ng-if="error" class="container">
   <h3>Something went wrong: {{error}}</h3>
 </div>
-<div ng-if="!error" class="container breathe">
+<div ng-if="loading">
+  <h4>LOADING....</h4>
+</div>
+<div ng-if="!error" class="row breathe">
   <ul class="thumbnails">
     <li class="span4" ng-repeat="song in songs">
       <a class="thumbnail" href="{{song.url}}" title="{{song.artist['#text']}} - {{song.name}}" style="display: block;">
