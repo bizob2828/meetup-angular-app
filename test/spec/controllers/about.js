@@ -22,6 +22,7 @@ describe('Controller: AboutCtrl', function () {
     AboutCtrl = controller('AboutCtrl', {
       $scope: scope
     });
+    scope.recentTracks();
     httpBackend.flush();
     expect(scope.songs).to.equal('hi');
   });
@@ -31,6 +32,7 @@ describe('Controller: AboutCtrl', function () {
     AboutCtrl = controller('AboutCtrl', {
       $scope: scope
     });
+    scope.recentTracks();
     httpBackend.flush();
     expect(scope.error).to.equal('your error');
   });
@@ -40,6 +42,7 @@ describe('Controller: AboutCtrl', function () {
     AboutCtrl = controller('AboutCtrl', {
       $scope: scope
     });
+    scope.recentTracks();
     httpBackend.flush();
     expect(scope.error).to.equal('api call failed');
   });
@@ -49,6 +52,7 @@ describe('Controller: AboutCtrl', function () {
     AboutCtrl = controller('AboutCtrl', {
       $scope: scope
     });
+    scope.recentTracks();
     httpBackend.flush();
     expect(scope.error).to.equal('Req is hosed');
   });
