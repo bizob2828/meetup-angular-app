@@ -15,7 +15,6 @@ angular.module('angularMeetupApp')
       return topChartsService.data;
     }, function(data) {
       if(typeof data !== 'undefined') {
-        console.log(data);
         $scope.topartists = data.topartists.artist;
       }
     });
